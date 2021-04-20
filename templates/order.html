@@ -5,34 +5,11 @@
     <title>Order</title>
 </head>
 <body>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .order {
-            width: 500px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-        input {
-            margin: 10px 0;
-            padding: 10px;
-        }
-    </style>
-    <form action="#" class="order">
-        <label for="fname">Ім'я</label>
-        <input type="text" id="fname" name="firstname" placeholder="Kovalenko Oleksiy Petrovuch" required>
-        <label for="email">Телефон</label>
-        <input type="tel" class="phone" placeholder="+380(ХХ)ХХХ-ХХ-ХХ" required>
-        <label for="adr">Адреса звідки</label>
-        <input type="text" id="adr1" name="address1" placeholder="Хрещатик 24" required>
-        <label for="adr">Адреса куди</label>
-        <input type="text" id="adr2" name="address2" placeholder="Тараса Шевченка 11" required>
-        <label for="adr">Бажаний час</label>
-        <input type="datetime-local" id="time" name="time" required>
+    <form action="#" class="order" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
         <input type="submit" class="sub" value="Відправити">
     </form>
 </body>

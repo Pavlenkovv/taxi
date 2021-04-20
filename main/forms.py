@@ -2,12 +2,12 @@ from django import forms
 import re
 
 
-class OrderForm(forms.ModelForm):
+class OrderForm(forms.Form):
     customer_name = forms.CharField(max_length=70, required=True)
     customer_phone = forms.CharField(max_length=30, required=True)
     address_from = forms.CharField(max_length=200, required=True)
     address_to = forms.CharField(max_length=200, required=True)
-    in_what_time = forms.TimeField(max_length=50, required=True)
+    in_what_time = forms.TimeField(required=True)
 
     def clean_customer_name(self):
         customer_name = self.cleaned_data["customer_name"].strip()

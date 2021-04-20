@@ -13,11 +13,11 @@ class User(AbstractBaseUser):
 
 
 class Order(models.Model):
-    customer_name = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
+    customer_name = models.CharField(max_length=50, null=False, blank=False)
     customer_phone = models.CharField(max_length=30, null=False, blank=False)
     address_from = models.CharField(max_length=200, null=False, blank=False)
     address_to = models.CharField(max_length=200, null=False, blank=False)
-    in_what_time = models.CharField(max_length=50, null=False, blank=False)
+    in_what_time = models.CharField(max_length=100, null=False, blank=False)
     car = models.ForeignKey('Car', on_delete=models.CASCADE, related_name='orders')
     order_done = models.BooleanField(default=False)
 

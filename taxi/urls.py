@@ -5,4 +5,5 @@ from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index)
 ]
