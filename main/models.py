@@ -11,7 +11,6 @@ class User(AbstractBaseUser):
     phone = models.CharField(blank=False, max_length=30)
 
 
-
 class Order(models.Model):
     customer_name = models.CharField(max_length=50, null=False, blank=False)
     customer_phone = models.CharField(max_length=30, null=False, blank=False)

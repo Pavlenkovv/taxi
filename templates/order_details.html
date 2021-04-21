@@ -24,13 +24,13 @@
         <th>Статус замовлення</th>
     </tr>
     <tr>
-        <td>Микола</td>
-        <td>+380111111111</td>
-        <td>Дегтярівська 10а</td>
-        <td>Хрещатик 10а</td>
-        <td>Porshe 718 Cayman</td>
-        <td>15/04/2021 19:57</td>
-        <td><input type="checkbox"></td>
+        <td>{{order.customer_name}}</td>
+        <td>{{order.customer_phone}}</td>
+        <td>{{order.address_from}}</td>
+        <td>{{order.address_to}}</td>
+        <td>{{order.car}}</td>
+        <td>{{order.in_what_time}}</td>
+        <td><input type="checkbox" {% if order.order_done %}checked="checked"{% endif %}></td>
     </tr>
 </table>
 </body>
