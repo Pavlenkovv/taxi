@@ -24,11 +24,12 @@
     </style>
 <body>
     <form action="#" class="order" method="post">
+        {% if no_car %}<p>Не має вільних авто, спробуйте пізніше.</p>{% endif %}
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
-        <input type="submit" class="sub" value="Відправити">
+        <input type="submit" class="sub" value="Замовити">
     </form>
 </body>
 </html>

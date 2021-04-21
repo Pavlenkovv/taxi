@@ -9,4 +9,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('orders/', order_list),
     path('orders/details', order_details),
+    path('details', user_order_details),
 ]

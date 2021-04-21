@@ -3,11 +3,11 @@ import re
 
 
 class OrderForm(forms.Form):
-    customer_name = forms.CharField(max_length=70, required=True)
-    customer_phone = forms.CharField(max_length=30, required=True)
-    address_from = forms.CharField(max_length=200, required=True)
-    address_to = forms.CharField(max_length=200, required=True)
-    in_what_time = forms.TimeField(required=True)
+    customer_name = forms.CharField(max_length=70, required=True, label="Ім'я")
+    customer_phone = forms.CharField(max_length=30, required=True, label='Телефон')
+    address_from = forms.CharField(max_length=200, required=True, label='Звідки їхати')
+    address_to = forms.CharField(max_length=200, required=True, label='Куди їхати')
+    in_what_time = forms.TimeField(required=True, label='Коли їхати')
 
     def clean_customer_name(self):
         customer_name = self.cleaned_data["customer_name"].strip()

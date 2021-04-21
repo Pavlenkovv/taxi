@@ -14,6 +14,30 @@
         table {
             margin-bottom: 20px;
         }
+
+        .pagination {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .pagination li {
+            margin: 0 1px;
+        }
+
+        ul.pagination li {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        ul.pagination li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     </style>
     <h1>Список замовлень</h1>
     <table class="table_price">
@@ -31,15 +55,16 @@
         {% endfor %}
     </table>
 {% if orders.has_other_pages %}
+    <div>
   <ul class="pagination">
     {% if orders.has_previous %}
       <li><a href="?page={{ orders.previous_page_number }}">&laquo;</a></li>
     {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+      <li class="disabled">&laquo;</li>
     {% endif %}
     {% for i in orders.paginator.page_range %}
       {% if orders.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        <li class="active">{{ i }} (current)</li>
       {% else %}
         <li><a href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}
@@ -47,9 +72,10 @@
     {% if orders.has_next %}
       <li><a href="?page={{ orders.next_page_number }}">&raquo;</a></li>
     {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
+      <li class="disabled">&raquo;</li>
     {% endif %}
   </ul>
+        </div>
 {% endif %}
 </body>
 </html>
